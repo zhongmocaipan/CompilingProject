@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#define pi 3.14
 int main() {
     int i, n, f;
     scanf("%d", &n);  // 使用 scanf 代替 cin
