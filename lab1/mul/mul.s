@@ -12,31 +12,31 @@ main:                                   # @main
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
 	subq	$16, %rsp
-	movl	$0, -4(%rbp)
-	leaq	.L.str(%rip), %rdi
+	movl	$0, -16(%rbp)
+	movabsq	$.L.str, %rdi
 	leaq	-12(%rbp), %rsi
 	movb	$0, %al
 	callq	__isoc99_scanf@PLT
-	movl	$2, -8(%rbp)
-	movl	$1, -16(%rbp)
+	movl	$2, -4(%rbp)
+	movl	$1, -8(%rbp)
 .LBB0_1:                                # =>This Inner Loop Header: Depth=1
-	movl	-8(%rbp), %eax
+	movl	-4(%rbp), %eax
 	cmpl	-12(%rbp), %eax
 	jg	.LBB0_3
 # %bb.2:                                #   in Loop: Header=BB0_1 Depth=1
-	movl	-16(%rbp), %eax
-	imull	-8(%rbp), %eax
-	movl	%eax, -16(%rbp)
 	movl	-8(%rbp), %eax
-	addl	$1, %eax
+	imull	-4(%rbp), %eax
 	movl	%eax, -8(%rbp)
+	movl	-4(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -4(%rbp)
 	jmp	.LBB0_1
 .LBB0_3:
-	movl	-16(%rbp), %esi
-	leaq	.L.str.1(%rip), %rdi
+	movl	-8(%rbp), %esi
+	movabsq	$.L.str.1, %rdi
 	movb	$0, %al
 	callq	printf@PLT
-	movl	-4(%rbp), %eax
+	movl	-16(%rbp), %eax
 	addq	$16, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
@@ -58,6 +58,3 @@ main:                                   # @main
 
 	.ident	"Ubuntu clang version 14.0.0-1ubuntu1.1"
 	.section	".note.GNU-stack","",@progbits
-	.addrsig
-	.addrsig_sym __isoc99_scanf
-	.addrsig_sym printf
