@@ -1,34 +1,40 @@
 int main ()
 {
-  int D.2353;
+  int D.2354;
 
   {
     int i;
     int n;
-    int f;
+    long long int factorial[1001];
 
     try
       {
-        scanf ("%d", &n);
-        i = 2;
-        f = 1;
-        goto <D.2350>;
+        n = 1000;
+        factorial[0] = 1;
+        i = 1;
+        goto <D.2352>;
         <D.2351>:
-        f = f * i;
+        _1 = i + -1;
+        _2 = factorial[_1];
+        _3 = (long long int) i;
+        _4 = _2 * _3;
+        factorial[i] = _4;
         i = i + 1;
-        <D.2350>:
-        n.0_1 = n;
-        if (i <= n.0_1) goto <D.2351>; else goto <D.2349>;
+        <D.2352>:
+        if (i <= n) goto <D.2351>; else goto <D.2349>;
         <D.2349>:
-        printf ("%d\n", f);
+        _5 = factorial[n];
+        printf ("%d! = %lld\n", n, _5);
+        D.2354 = 0;
+        return D.2354;
       }
     finally
       {
-        n = {CLOBBER};
+        factorial = {CLOBBER};
       }
   }
-  D.2353 = 0;
-  return D.2353;
+  D.2354 = 0;
+  return D.2354;
 }
 
 

@@ -1,0 +1,13 @@
+int factorial(int n) {
+    if (n <= 1) {
+        return 1; // n <= 1 时返回 1
+    } else {
+        return n * factorial(n - 1); // 递归调用阶乘函数
+    }
+}
+
+int main() {
+    int result;
+    result = factorial(5); // 调用阶乘函数
+    return result; // 返回结果
+}

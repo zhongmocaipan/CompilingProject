@@ -12,15 +12,18 @@ subgraph "cluster_main" {
 	labeljust=l;
 	penwidth=2;
 	fn_0_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
-|n.0_1\ =\ n;\l\
-|if\ (i\ \<=\ n.0_1)\l\
+|if\ (i\ \<=\ n)\l\
 \ \ goto\ \<bb\ 3\>;\ [INV]\l\
 else\l\
 \ \ goto\ \<bb\ 5\>;\ [INV]\l\
 }"];
 
 	fn_0_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
-|f\ =\ f\ *\ i;\l\
+|_1\ =\ i\ +\ -1;\l\
+|_2\ =\ factorial[_1];\l\
+|_3\ =\ (long\ long\ int)\ i;\l\
+|_4\ =\ _2\ *\ _3;\l\
+|factorial[i]\ =\ _4;\l\
 |i\ =\ i\ +\ 1;\l\
 }"];
 
@@ -30,21 +33,22 @@ else\l\
 	fn_0_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
 
 	fn_0_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
-|scanf\ (\"%d\",\ &n);\l\
-|i\ =\ 2;\l\
-|f\ =\ 1;\l\
+|n\ =\ 1000;\l\
+|factorial[0]\ =\ 1;\l\
+|i\ =\ 1;\l\
 goto\ \<bb\ 4\>;\ [INV]\l\
 }"];
 
 	fn_0_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
-|printf\ (\"%d\\n\",\ f);\l\
-|n\ =\ \{CLOBBER\};\l\
-|D.2353\ =\ 0;\l\
+|_5\ =\ factorial[n];\l\
+|printf\ (\"%d!\ =\ %lld\\n\",\ n,\ _5);\l\
+|D.2354\ =\ 0;\l\
+|factorial\ =\ \{CLOBBER\};\l\
 }"];
 
 	fn_0_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
-|\<L3\>:\l\
-|return\ D.2353;\l\
+|\<L4\>:\l\
+|return\ D.2354;\l\
 }"];
 
 	fn_0_basic_block_0:s -> fn_0_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];

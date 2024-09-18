@@ -1,19 +1,22 @@
 #include <stdio.h>
 
-// 宏定义不同的数据量
 #ifndef N
-#define N 1000  // 默认数据量
+#define N 1000  
 #endif
 
 int main() {
-    int i, n, f;
-    n = N;  // 使用宏定义的 N 值
-    i = 2;
-    f = 1;
-    while (i <= n) {
-        f = f * i;
-        i = i + 1;
+    int i, n;
+    long long factorial[N+1];  // 用于存储阶乘结果的数组
+
+    n = N;  
+    factorial[0] = 1;  // 0! 定义为 1
+
+    for (i = 1; i <= n; i++) {
+        factorial[i] = factorial[i - 1] * i;  // 使用前一个阶乘值计算当前阶乘
     }
-    printf("n = %d, factorial = %d\n", n, f);  // 输出 n 和结果
+
+    // 输出 n 和结果
+    printf("%d! = %lld\n", n, factorial[n]);
+
     return 0;
 }

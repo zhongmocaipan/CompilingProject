@@ -6,22 +6,23 @@
 {
   int i;
   int n;
-  int f;
+  long long int factorial[1001];
 
     int i;
     int n;
-    int f;
-  scanf ((const char * restrict) "%d", &n);
-  i = 2;
-  f = 1;
-  goto <D.2350>;
+    long long int factorial[1001];
+  n = 1000;
+  factorial[0] = 1;
+  i = 1;
+  goto <D.2352>;
   <D.2351>:;
-  f = f * i;
-  i = i + 1;
-  <D.2350>:;
+  factorial[i] = factorial[i + -1] * (long long int) i;
+  i++ ;
+  <D.2352>:;
   if (i <= n) goto <D.2351>; else goto <D.2349>;
   <D.2349>:;
-  printf ((const char * restrict) "%d\n", f);
+  printf ((const char * restrict) "%d! = %lld\n", n, factorial[n]);
+  return 0;
 }
 return 0;
 

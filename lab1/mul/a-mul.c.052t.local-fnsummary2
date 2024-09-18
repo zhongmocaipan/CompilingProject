@@ -3,58 +3,66 @@
 
 
 Analyzing function body size: main/0
+		Accounting address calculation.
+		Accounting address calculation.
+		Accounting address calculation.
 
 IPA function summary for main/0
-  global time:     31.000000
-  self size:       14
-  global size:     14
+  global time:     27.000000
+  self size:       19
+  global size:     19
   min size:       0
   self stack:      0
   global stack:    0
-    size:6.000000, time:7.000000
+    size:13.000000, time:14.000000
     size:2.000000, time:0.000000,  executed if:(not inlined)
   calls:
-    printf/2 function body not available
-      freq:1.00 loop depth: 0 size: 3 time: 12
-    scanf/1 function body not available
-      freq:1.00 loop depth: 0 size: 3 time: 12
+    printf/1 function body not available
+      freq:1.00 loop depth: 0 size: 4 time: 13
 
 int main ()
 {
-  int f;
+  long long int factorial[1001];
   int n;
   int i;
-  int D.2353;
-  int n.0_1;
-  int _10;
+  int D.2354;
+  int _1;
+  long long int _2;
+  long long int _3;
+  long long int _4;
+  long long int _5;
+  int _13;
 
   <bb 2> :
-  scanf ("%d", &n);
-  i_6 = 2;
-  f_7 = 1;
+  n_8 = 1000;
+  factorial[0] = 1;
+  i_11 = 1;
   goto <bb 4>; [INV]
 
   <bb 3> :
-  f_11 = f_3 * i_2;
-  i_12 = i_2 + 1;
+  _1 = i_6 + -1;
+  _2 = factorial[_1];
+  _3 = (long long int) i_6;
+  _4 = _2 * _3;
+  factorial[i_6] = _4;
+  i_16 = i_6 + 1;
 
   <bb 4> :
-  # i_2 = PHI <i_6(2), i_12(3)>
-  # f_3 = PHI <f_7(2), f_11(3)>
-  n.0_1 = n;
-  if (i_2 <= n.0_1)
+  # i_6 = PHI <i_11(2), i_16(3)>
+  if (i_6 <= n_8)
     goto <bb 3>; [INV]
   else
     goto <bb 5>; [INV]
 
   <bb 5> :
-  printf ("%d\n", f_3);
-  n ={v} {CLOBBER};
-  _10 = 0;
+  _5 = factorial[n_8];
+  printf ("%d! = %lld\n", n_8, _5);
+  _13 = 0;
+  factorial ={v} {CLOBBER};
 
   <bb 6> :
-<L3>:
-  return _10;
+<L4>:
+  return _13;
 
 }
 

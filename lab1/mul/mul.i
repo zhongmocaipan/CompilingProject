@@ -737,17 +737,24 @@ extern int __overflow (FILE *, int);
 # 2 "mul.c" 2
 
 
-# 3 "mul.c"
+
+
+
+
+# 7 "mul.c"
 int main() {
-    int i, n, f;
-    scanf("%d", &n);
-    i = 2;
-    f = 1;
-    while (i <= n) {
-        f = f * i;
-        i = i + 1;
+    int i, n;
+    long long factorial[1000 +1];
+
+    n = 1000;
+    factorial[0] = 1;
+
+    for (i = 1; i <= n; i++) {
+        factorial[i] = factorial[i - 1] * i;
     }
-    printf("%d\n", f);
-    printf("%d\n", 3.14);
-}
+
+
+    printf("%d! = %lld\n", n, factorial[n]);
+
+    return 0;
 }
